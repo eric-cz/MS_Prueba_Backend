@@ -1,0 +1,29 @@
+{
+  "name": "ms_prueba_backend",
+  "version": "1.0.0",
+  "description": "Calculo de los salarios de los jugadores",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+    },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eric-cz/MS_Prueba_Backend.git"
+  },
+  "keywords": [
+    "Backend",
+    "Prueba",
+    "Salarios"
+  ],
+  "author": "Eric Garcia",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jsonschema": "^1.4.0",
+    "log4js": "^6.3.0"
+  },
+  "bugs": {
+    "url": "https://github.com/eric-cz/MS_Prueba_Backend/issues"
+  },
+  "homepage": "https://github.com/eric-cz/MS_Prueba_Backend#readme"
+}

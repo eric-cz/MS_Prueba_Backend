@@ -1,29 +1,19 @@
 const LOGGER = require('./commons/Logger')
-const { getTeamConfig, batchConfig} = require('./dao/TeamDao')
+const { batchConfig} = require('./dao/TeamDao')
+const data = require('../data/initialData.json');
 
-const resuelve = {
-    "nombreEquipo": "azul",
-    "meta": {
-        "A": 7,
-        "B": 11,
-        "C": 18,
-        "Cristiano": 45
-    }
+const getUploadConfig = arrayConfig => {
+    return arrayConfig.map( config => {
+        return {
+            type: 'put',
+            key: config.nombreEquipo,
+            value: config
+        }
+    } )
 }
 
-async function pruebaBB(){
-    const config = [{
-        type: 'put',
-        key: resuelve.nombreEquipo,
-        value: resuelve
-    }]
-    await batchConfig(config)
-    const teamFromBD = await getTeamConfig(resuelve.nombreEquipo)
-    LOGGER.info(teamFromBD)
-}
-
-pruebaBB().then( () => 
+batchConfig(getUploadConfig(data)).then( () => 
     LOGGER.debug('Carga inicial correcta')
-).catch( error => 
-    LOGGER.error(error)
+    ).catch( error => 
+        LOGGER.error(error)
 )

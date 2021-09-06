@@ -20,4 +20,13 @@ const batchConfig = async options => {
     LOGGER.info(`Finishing batchConfig`)
 }
 
-module.exports = { saveTeamConfig, getTeamConfig , batchConfig}
+const getTeamsConfigByKeys = async keys => {
+    LOGGER.info(`Starting getTeamConfigsByKeys`)
+    const retVal = await Promise.all(keys.map(async(key ) => {
+       return await getTeamConfig(key)
+    } ))
+    LOGGER.info(`Finishing getTeamConfigsByKeys`)
+    return retVal
+}
+
+module.exports = { saveTeamConfig, getTeamConfig , batchConfig, getTeamsConfigByKeys}

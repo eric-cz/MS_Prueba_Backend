@@ -1,0 +1,26 @@
+[{
+    "nombreEquipo": "Resuelve FC",
+    "meta": {
+        "A": 5,
+        "B": 10,
+        "C": 15,
+        "Cuauh": 20
+    }
+},{
+    "nombreEquipo": "rojo",
+    "meta": {
+        "A": 9,
+        "B": 12,
+        "C": 17,
+        "Messi": 45
+    }
+},{
+    "nombreEquipo": "azul",
+    "meta": {
+        "A": 7,
+        "B": 11,
+        "C": 18,
+        "Cristiano": 45
+    }
+}
+]

@@ -12,7 +12,20 @@ const getPerformance = (goles,meta) => {
     return roundNumber(maxPerformance)
 }
 
+const getBonus = (bonusAmount, performance) => {
+    const bonus = (bonusAmount * performance)/100
+    return roundNumber(bonus)
+}
+
+const getSalary = (salary, bonus) => {
+    return salary + bonus
+}
+
+const getAveragePerformance = (playerPerformance, teamPerformance) => {
+    const performance = (playerPerformance + teamPerformance)/2
+    return roundNumber(performance)
+}
+
 module.exports = {
-     getPerformance
+     getPerformance, getBonus, getSalary, getAveragePerformance
   }
-  

@@ -1,6 +1,5 @@
-const {EJEMPLO_RESUELVE_FC } = require('../../data/Players')
 const { TEAMS_EJEMPLO_RESUELVE_BD} = require('../../data/Teams')
-const { getPerformance } = require('../commons/Operations')
+const { getPerformance, getSalary, getBonus, getAveragePerformance } = require('../commons/Operations')
 const { getTeamsPerformance } = require('./TeamService')
 
 const getObjectiveByLevel = (configTeam, level) => {
@@ -35,9 +34,9 @@ const setTeamPerformanceToPlayer = (player, teamsPerformance) => {
 
 const getFinalSalary = player => {
     if(player.alcance && player.alcanceEquipo){
-        const performance = (player.alcance + player.alcanceEquipo)/2
-        const bonus = (player.bono * performance)/100
-        const salary = player.sueldo + bonus
+        const performance =  getAveragePerformance(player.alcance, player.alcanceEquipo)
+        const bonus = getBonus(player.bono, performance)
+        const salary = getSalary(player.sueldo, bonus)
         return {... player, sueldo_completo : salary}
     }
     return { ...player, sueldo_completo: null }
@@ -48,16 +47,11 @@ const getSalaries = players => {
         .map(player => getPlayerObjective(player, TEAMS_EJEMPLO_RESUELVE_BD))
         .map(getPlayerPerformance)
     const teamsPerformance = getTeamsPerformance(playersWithPerformance)
-    const playersWithSalary = playersWithPerformance
+    return playersWithSalary = playersWithPerformance
     .map(player => setTeamPerformanceToPlayer(player, teamsPerformance))
     .map(getFinalSalary)
-
-    console.log(playersWithSalary)
 }
 
 module.exports = {
     getSalaries
   }
-
-
-getSalaries(EJEMPLO_RESUELVE_FC.jugadores)

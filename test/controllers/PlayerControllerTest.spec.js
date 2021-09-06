@@ -6,9 +6,19 @@ const app = require('../../src/app')
 chai.use(chaiHttp)
 const { CONTEXT_APP } = require('../../src/commons/Constants')
 const { EJEMPLO_RESUELVE_FC, EJEMPLO_ROJO_AZUL } = require('../data/Players')
-
+const {initData, deleteData} = require('../DB')
+const { TEAMS_EJEMPLO_RESUELVE_BD} = require('../data/Teams')
 
 describe('Testing POST /players/salaries',()=>{
+   before('Inidt data in DB', async () => {
+     await  initData(TEAMS_EJEMPLO_RESUELVE_BD)
+  })
+
+  after('Delete data in DB', async () => {
+      await deleteData(TEAMS_EJEMPLO_RESUELVE_BD)
+  }) 
+
+
    it('1. Calcular salario El Rulo', (done) => {
     chai.request(app).post(`${CONTEXT_APP}/players/salaries`)
     .send(EJEMPLO_ROJO_AZUL)

@@ -1,8 +1,19 @@
 const { EJEMPLO_RESUELVE_FC, EJEMPLO_ROJO_AZUL, CHIAPAS_PLAYERS, YUCATAN_PLAYERS } = require('../data/Players')
 const { getSalaries } = require('../../src/services/PlayerService')
 const assert = require("chai").assert
+const {initData, deleteData} = require('../DB')
+const { TEAMS_EJEMPLO_RESUELVE_BD} = require('../data/Teams')
 
 describe("Testing PlayerService", function() {
+
+    before('Inidt data in DB', async () => {
+        await  initData(TEAMS_EJEMPLO_RESUELVE_BD)
+     })
+   
+     after('Delete data in DB', async () => {
+         await deleteData(TEAMS_EJEMPLO_RESUELVE_BD)
+     }) 
+
     describe("1. getSalaries", function() {
         it("1.1 Test Resuelve FC ", async function() {
             const playersSalary = await getSalaries(EJEMPLO_RESUELVE_FC.jugadores)

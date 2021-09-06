@@ -22,7 +22,7 @@ const getObjectiveByLevel = (configTeam, level) => {
 const getPlayerObjective = (player, teams) => {
     const teamGoals = teams[player.equipo]
     if(teamGoals){
-        return { ...player, meta: getObjectiveByLevel(teamGoals.meta, player.nivel)}
+        return { ...player, goles_minimos: getObjectiveByLevel(teamGoals.meta, player.nivel)}
     }
     return {...player}
 }
@@ -32,8 +32,8 @@ const getPlayerObjective = (player, teams) => {
  * @returns 
  */
 const getPlayerPerformance = player => {
-    if(player.meta){
-        const perfomance = getPerformance(player.goles,player.meta)
+    if(player.goles_minimos){
+        const perfomance = getPerformance(player.goles,player.goles_minimos)
         return {... player, alcance: perfomance }
     }
     return {...player}

@@ -133,7 +133,7 @@ exports.YUCATAN_PLAYERS =  [
       "bono":25000,
       "sueldo_completo":null,
       "equipo":"Puerto Progreso FC",
-      "meta": 17
+      "goles_minimos": 17
    },
    {  
       "nombre":"Abraham",
@@ -143,7 +143,7 @@ exports.YUCATAN_PLAYERS =  [
       "bono":30000,
       "sueldo_completo":null,
       "equipo":"Puerto Progreso FC",
-      "meta": 27
+      "goles_minimos": 27
    },
    {  
       "nombre":"Fulanito",
@@ -153,7 +153,7 @@ exports.YUCATAN_PLAYERS =  [
       "bono":9000,
       "sueldo_completo":null,
       "equipo":"RIO LAGARTOS FC",
-      "meta": 12
+      "goles_minimos": 12
 
    },
    {  
@@ -164,7 +164,7 @@ exports.YUCATAN_PLAYERS =  [
       "bono":16000,
       "sueldo_completo":null,
       "equipo":"RIO LAGARTOS FC",
-      "meta": 5
+      "goles_minimos": 5
 
    }
 ]

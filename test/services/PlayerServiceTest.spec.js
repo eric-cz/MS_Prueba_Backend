@@ -1,4 +1,4 @@
-const { EJEMPLO_RESUELVE_FC, EJEMPLO_ROJO_AZUL } = require('../data/Players')
+const { EJEMPLO_RESUELVE_FC, EJEMPLO_ROJO_AZUL, CHIAPAS_PLAYERS, YUCATAN_PLAYERS } = require('../data/Players')
 const { getSalaries } = require('../../src/services/PlayerService')
 const assert = require("chai").assert
 
@@ -24,7 +24,23 @@ describe("Testing PlayerService", function() {
             const rulo = playersSalary[3]
             assert.equal( 42450, rulo.sueldo_completo)
         })
-        
+        it("1.3 Test jugadores sin configuración ", async function() {
+            const playersSalary = await getSalaries(CHIAPAS_PLAYERS)
+            assert.equal(CHIAPAS_PLAYERS.length, playersSalary.length)
+            assert.isNull(playersSalary[0].sueldo_completo)
+        })
+
+        it("1.4 Test jugadores  distintos equipos con meta en el JSON y sin configuración en BD", async function() {
+            const playersSalary = await getSalaries(YUCATAN_PLAYERS)
+            assert.equal(YUCATAN_PLAYERS.length, playersSalary.length)
+            assert.isNotNull(playersSalary[0].sueldo_completo)
+        })
+
+        it("1.5 Test mandar arreglo sin elementos  ", async function() {
+            const playersSalary = await getSalaries([])
+            assert.equal(0, playersSalary.length)
+        })
+
     }) 
 
 

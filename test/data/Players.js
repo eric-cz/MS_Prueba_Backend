@@ -82,4 +82,89 @@ exports.EJEMPLO_RESUELVE_FC= {
       }
    ]
 }
+
+exports.CHIAPAS_PLAYERS =  [  
+   {  
+      "nombre":"Renato Ibarra",
+      "nivel":"C",
+      "goles":14,
+      "sueldo":50000,
+      "bono":25000,
+      "sueldo_completo":null,
+      "equipo":"TUXTLA FC"
+   },
+   {  
+      "nombre":"Leornado",
+      "nivel":"Cuauh",
+      "goles":16,
+      "sueldo":45000,
+      "bono":19000,
+      "sueldo_completo":null,
+      "equipo":"TUXTLA FC"
+   },
+   {  
+      "nombre":"David Villa",
+      "nivel":"A",
+      "goles":7,
+      "sueldo":22000,
+      "bono":14000,
+      "sueldo_completo":null,
+      "equipo":"OCOSINGO FC"
+
+   },
+   {  
+      "nombre":"Morita",
+      "nivel":"B",
+      "goles":9,
+      "sueldo":30000,
+      "bono":13000,
+      "sueldo_completo":null,
+      "equipo":"OCOSINGO FC"
+
+   }
+]
  
+exports.YUCATAN_PLAYERS =  [  
+   {  
+      "nombre":"El Pibil",
+      "nivel":"C",
+      "goles":19,
+      "sueldo":39500,
+      "bono":25000,
+      "sueldo_completo":null,
+      "equipo":"Puerto Progreso FC",
+      "meta": 17
+   },
+   {  
+      "nombre":"Abraham",
+      "nivel":"Z",
+      "goles":30,
+      "sueldo":90000,
+      "bono":30000,
+      "sueldo_completo":null,
+      "equipo":"Puerto Progreso FC",
+      "meta": 27
+   },
+   {  
+      "nombre":"Fulanito",
+      "nivel":"A",
+      "goles":7,
+      "sueldo":20000,
+      "bono":9000,
+      "sueldo_completo":null,
+      "equipo":"RIO LAGARTOS FC",
+      "meta": 12
+
+   },
+   {  
+      "nombre":"Rolando",
+      "nivel":"B",
+      "goles":9,
+      "sueldo":30000,
+      "bono":16000,
+      "sueldo_completo":null,
+      "equipo":"RIO LAGARTOS FC",
+      "meta": 5
+
+   }
+]

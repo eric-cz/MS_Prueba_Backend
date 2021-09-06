@@ -17,10 +17,58 @@
 },{
     "nombreEquipo": "azul",
     "meta": {
-        "A": 5,
-        "B": 10,
-        "C": 15,
+        "A": 7,
+        "B": 11,
+        "C": 18,
         "Cuauh": 20
+    }
+},{
+    "nombreEquipo": "Cuervos",
+    "meta": {
+        "Rafa": 9,
+        "Moí": 12,
+        "Goyo": 19,
+        "Pele": 40
+    }
+},{
+    "nombreEquipo": "San Pancho",
+    "meta": {
+        "Suarez": 11,
+        "Neymar": 12,
+        "Modrid": 9,
+        "Maradona": 40
+    }
+},{
+    "nombreEquipo": "Aston Birria",
+    "meta": {
+        "Benzema": 2,
+        "Ronaldo": 12,
+        "Sanchez": 19,
+        "Muller": 37
+    }
+},{
+    "nombreEquipo": "Correcaminos",
+    "meta": {
+        "Halland": 15,
+        "Kane": 10,
+        "Griezman": 5,
+        "Puskas": 29
+    }
+},{
+    "nombreEquipo": "La Real Pibil",
+    "meta": {
+        "Mane": 10,
+        "Firmino": 16,
+        "Calvert-Lewin": 13,
+        "Romario": 27
+    }
+},{
+    "nombreEquipo": "Real Union",
+    "meta": {
+        "Lukaku": 8,
+        "Mbappe": 17,
+        "Grealish": 15,
+        "Lewandowski": 23
     }
 }
 ]

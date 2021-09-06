@@ -1,5 +1,4 @@
 const Validator = require("jsonschema").Validator;
-
 var validatorSchema = new Validator();
 const TYPE_STRING_REQ = { type: "string", required: true };
 const TYPE_INTEGER_NO_REQ_MIN = { type: "integer", minimum: 0 };
@@ -37,7 +36,7 @@ const team = {
   type: "object",
   properties: {
     nombreEquipo: TYPE_STRING_REQ,
-    meta: {
+    goles_minimos: {
       type: "array",
       minItems: 1,
       items: { $ref: "/nivel" },
@@ -46,11 +45,22 @@ const team = {
   }
 }
 
+const nivel = {
+  id: "/nivel",
+  type: "object",
+  properties: {
+    nivel: TYPE_STRING_REQ,
+    goles:  TYPE_INTEGER_REQ_MIN
+  }
+}
+
 validatorSchema.addSchema(player, "/player")
 validatorSchema.addSchema(requestPlayers, "/requestPlayers")
-
+validatorSchema.addSchema(team, "/team")
+validatorSchema.addSchema(nivel, "/nivel")
 
 module.exports = {
   validatorSchema,
-  requestPlayers
+  requestPlayers,
+  team
 }

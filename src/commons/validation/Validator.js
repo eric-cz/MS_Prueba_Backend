@@ -18,6 +18,11 @@ const validatePlayersJson = data => {
   validateJson(data, ValidatorUtil.requestPlayers)
 } 
 
+const validateTeamJson = data => {
+  validateJson(data, ValidatorUtil.team)
+} 
+
 module.exports = {
-  validatePlayersJson
+  validatePlayersJson, 
+  validateTeamJson
 }

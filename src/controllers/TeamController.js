@@ -1,5 +1,5 @@
 const LOGGER = require('../commons/Logger')
-const { getConfig } = require('../services/TeamService')
+const { getConfig, saveConfig, updateConfig } = require('../services/TeamService')
 const { handlerError } = require('../commons/HandlerException') 
 const { validateTeamJson } = require('../commons/validation/Validator')
 /**
@@ -19,5 +19,28 @@ const getTeam = async(req, res) => {
   }
 }
     
-module.exports = { getTeam }
+const updateTeam = async(req, res) => { 
+  LOGGER.info(`Team Controller updateTeam`)
+  const { teamName } = req.params;
+  try {
+    validateTeamJson(req.body)
+    await updateConfig(teamName, req.body)
+    return res.status(200).send({ mensaje: 'Configuración actualizada correctemente'})    
+  } catch (error) {
+    handlerError(res, error)
+  }
+}
+
+const saveTeam = async(req, res) => { 
+  LOGGER.info(`Team Controller saveTeam`)
+  try {
+    validateTeamJson(req.body)
+    await saveConfig(req.body)
+    return res.status(201).send({ mensaje: 'Configuración creada correctemente'})  
+  } catch (error) {
+    handlerError(res, error)
+  }
+}
+  
+module.exports = { getTeam, updateTeam, saveTeam }
   

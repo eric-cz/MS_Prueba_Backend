@@ -1,5 +1,6 @@
-const { getTeamsConfigByKeys } = require('../dao/TeamDao')
+const { getTeamsConfigByKeys, getTeamConfig } = require('../dao/TeamDao')
 const { getPerformance } = require('../commons/Operations')
+const { NotFoundException } = require('../commons/Exceptions')
 
 const filterByMeta = element => {
     return element.goles_minimos !== undefined && element.goles_minimos !== null
@@ -61,8 +62,16 @@ const getTeamsByTeamNames = async teamNames => {
     } ,{})
 }
 
+const getConfig = async teamName => {
+    const config = await getTeamConfig(teamName)
+    if(!config)
+       throw new NotFoundException('No existen resultados para su búsqueda',`No existe configuración para el equipo: ${teamName}`)
+   return config
+}
+
 module.exports = {
     getTeamsPerformance,
     getNameTeamsFromPlayers,
-    getTeamsByTeamNames
+    getTeamsByTeamNames,
+    getConfig
 }

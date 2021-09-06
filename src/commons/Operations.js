@@ -2,7 +2,6 @@ const getMaxPerformance = performance => {
     return performance > 100 ? 100 : performance
 }
 
-
 const roundNumber = number => {
     return Math.round(number * 100) / 100;
 }
@@ -16,3 +15,4 @@ const getPerformance = (goles,meta) => {
 module.exports = {
      getPerformance
   }
+  

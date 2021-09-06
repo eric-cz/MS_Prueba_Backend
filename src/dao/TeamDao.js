@@ -9,9 +9,18 @@ const saveTeamConfig = async team => {
 
 const getTeamConfig = teamName => {
     LOGGER.info(`Starting getTeamConfig: ${teamName}`)
-    const team = database.get(teamName)
-    LOGGER.info(`Ending getTeamConfig: ${teamName}`)
-    return team
+    return new Promise( (resolve) => {
+     database.get(teamName, function (err, value) {
+        if (err) {
+          if (err.notFound) {
+            LOGGER.info(`No se ha encontrado ${teamName}`)
+          }
+          resolve(null)
+        }else{
+            resolve(value)
+        }
+    })
+    })
 }
 
 const batchConfig = async options => {
@@ -29,4 +38,4 @@ const getTeamsConfigByKeys = async keys => {
     return retVal
 }
 
-module.exports = { saveTeamConfig, getTeamConfig , batchConfig, getTeamsConfigByKeys}
+module.exports = { saveTeamConfig, getTeamConfig , batchConfig, getTeamsConfigByKeys }

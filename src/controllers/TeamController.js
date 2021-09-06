@@ -2,7 +2,12 @@ const LOGGER = require('../commons/Logger')
 const { getConfig } = require('../services/TeamService')
 const { handlerError } = require('../commons/HandlerException') 
 const { validateTeamJson } = require('../commons/validation/Validator')
-
+/**
+ * Obtiene la configuración del equipo por nombre de equiṕo
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
 const getTeam = async(req, res) => { 
   LOGGER.info(`Team Controller getTeam`)
   const { teamName } = req.params

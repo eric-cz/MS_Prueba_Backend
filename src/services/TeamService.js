@@ -62,11 +62,22 @@ const getTeamsByTeamNames = async teamNames => {
     } ,{})
 }
 
+const getConfigUser = teamDB => {
+    const goles_minimos = []
+    for (const [nivel, goles] of Object.entries(teamDB.meta)) {
+        goles_minimos.push({nivel, goles})
+    }
+    return { 
+        nombreEquipo: teamDB.nombreEquipo,
+        goles_minimos    
+    }
+}
+
 const getConfig = async teamName => {
     const config = await getTeamConfig(teamName)
     if(!config)
        throw new NotFoundException('No existen resultados para su búsqueda',`No existe configuración para el equipo: ${teamName}`)
-   return config
+   return getConfigUser(config)
 }
 
 module.exports = {

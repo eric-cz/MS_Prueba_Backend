@@ -47,7 +47,7 @@ const getSalaries = players => {
         .map(player => getPlayerObjective(player, TEAMS_EJEMPLO_RESUELVE_BD))
         .map(getPlayerPerformance)
     const teamsPerformance = getTeamsPerformance(playersWithPerformance)
-    return playersWithSalary = playersWithPerformance
+    return playersWithPerformance
     .map(player => setTeamPerformanceToPlayer(player, teamsPerformance))
     .map(getFinalSalary)
 }

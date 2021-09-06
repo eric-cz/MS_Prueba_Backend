@@ -18,7 +18,7 @@ const getPlayerObjective = (player, teams) => {
 
 const getPlayerPerformance = player => {
     if(player.meta){
-        const perfomance = getPerformance(player.goles/player.meta)
+        const perfomance = getPerformance(player.goles,player.meta)
         return {... player, alcance: perfomance }
     }
     return {...player}
@@ -33,7 +33,7 @@ const getFirstTeamPerfomance = player => {
         equipo: player.equipo,
         goles: player.goles,
         meta: player.meta,
-        alcance: getPerformance(player.goles/player.meta)
+        alcance: getPerformance(player.goles,player.meta)
     }
 }
 
@@ -43,7 +43,7 @@ const getSuccessiveTeamPerformance = (player, teamPerformance) => {
     return {
         goles,
         meta,
-        alcance: getPerformance(goles/meta),
+        alcance: getPerformance(goles,meta),
         equipo: teamPerformance.equipo
     }
 }

@@ -116,3 +116,5 @@ dist
 # Intellij
 .idea
 *.iml
+
+resuelvedb

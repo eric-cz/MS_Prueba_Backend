@@ -25,8 +25,6 @@ const getPlayerPerformance = player => {
     return {...player}
 }
 
-
-
 const getSalaries = players => {
     const playersWithPerformance = players
         .map(player => getPlayerObjective(player, TEAMS_EJEMPLO_RESUELVE_BD))

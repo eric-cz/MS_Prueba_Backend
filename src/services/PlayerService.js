@@ -1,5 +1,6 @@
 const {EJEMPLO_RESUELVE_FC } = require('../../data/Players')
 const { TEAMS_EJEMPLO_RESUELVE_BD} = require('../../data/Teams')
+const { getPerformance } = require('../commons/Operations')
 
 const getObjectiveByLevel = (configTeam, level) => {
     if(level)
@@ -17,7 +18,7 @@ const getPlayerObjective = (player, teams) => {
 
 const getPlayerPerformance = player => {
     if(player.meta){
-        const perfomance = (player.goles/player.meta) * 100
+        const perfomance = getPerformance(player.goles/player.meta)
         return {... player, alcance: perfomance }
     }
     return {...player}
@@ -32,7 +33,7 @@ const getFirstTeamPerfomance = player => {
         equipo: player.equipo,
         goles: player.goles,
         meta: player.meta,
-        alcance: (player.goles/player.meta) * 100
+        alcance: getPerformance(player.goles/player.meta)
     }
 }
 
@@ -42,7 +43,7 @@ const getSuccessiveTeamPerformance = (player, teamPerformance) => {
     return {
         goles,
         meta,
-        alcance: (goles/meta) * 100,
+        alcance: getPerformance(goles/meta),
         equipo: teamPerformance.equipo
     }
 }

@@ -1,3 +1,4 @@
+const { getTeamsConfigByKeys } = require('../dao/TeamDao')
 const { getPerformance } = require('../commons/Operations')
 
 const filterByMeta = element => {
@@ -39,6 +40,29 @@ const getTeamsPerformance = players => {
     .reduce( getTeamsPerformanceByPlayer,{})
 }
 
+const addNameTeamFromPlayer = (teams, player) => {
+    if(player.equipo)
+        teams.add(player.equipo)
+    return teams
+}
+
+const getNameTeamsFromPlayers = players => {
+   const teams = players.reduce(addNameTeamFromPlayer,new Set());
+   return Array.from(teams);
+}
+
+const getTeamsByTeamNames = async teamNames => {
+    return (await getTeamsConfigByKeys(teamNames))
+    .reduce( (accum, current ) => {
+        if(current){
+            accum[current.nombreEquipo] = current.meta
+        }
+        return accum
+    } ,{})
+}
+
 module.exports = {
-    getTeamsPerformance
+    getTeamsPerformance,
+    getNameTeamsFromPlayers,
+    getTeamsByTeamNames
 }

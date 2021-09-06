@@ -1,6 +1,5 @@
-const { TEAMS_EJEMPLO_RESUELVE_BD} = require('../../data/Teams')
 const { getPerformance, getSalary, getBonus, getAveragePerformance } = require('../commons/Operations')
-const { getTeamsPerformance } = require('./TeamService')
+const { getTeamsPerformance, getNameTeamsFromPlayers, getTeamsByTeamNames } = require('./TeamService')
 /**
  * Se obtiene el minimo de goles por nivel
  * @param {*} configTeam 
@@ -22,7 +21,7 @@ const getObjectiveByLevel = (configTeam, level) => {
 const getPlayerObjective = (player, teams) => {
     const teamGoals = teams[player.equipo]
     if(teamGoals){
-        return { ...player, goles_minimos: getObjectiveByLevel(teamGoals.meta, player.nivel)}
+        return { ...player, goles_minimos: getObjectiveByLevel(teamGoals, player.nivel)}
     }
     return {...player}
 }
@@ -72,9 +71,11 @@ const getFinalSalary = player => {
  * @param {*} players 
  * @returns 
  */
-const getSalaries = players => {
+const getSalaries = async players => {
+    const nameTeams = getNameTeamsFromPlayers(players)
+    const teams =  await getTeamsByTeamNames(nameTeams)
     const playersWithPerformance = players
-        .map(player => getPlayerObjective(player, TEAMS_EJEMPLO_RESUELVE_BD))
+        .map(player => getPlayerObjective(player, teams))
         .map(getPlayerPerformance)
     const teamsPerformance = getTeamsPerformance(playersWithPerformance)
     return playersWithPerformance

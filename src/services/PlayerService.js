@@ -25,14 +25,34 @@ const getPlayerPerformance = player => {
     return {...player}
 }
 
+const setTeamPerformanceToPlayer = (player, teamsPerformance) => {
+    const teamPerformance = teamsPerformance[player.equipo]
+    if(teamPerformance){
+        return { ...player, alcanceEquipo: teamPerformance.alcance }
+    }
+    return {...player}
+}
+
+const getFinalSalary = player => {
+    if(player.alcance && player.alcanceEquipo){
+        const performance = (player.alcance + player.alcanceEquipo)/2
+        const bonus = (player.bono * performance)/100
+        const salary = player.sueldo + bonus
+        return {... player, sueldo_completo : salary}
+    }
+    return { ...player, sueldo_completo: null }
+}
+
 const getSalaries = players => {
     const playersWithPerformance = players
         .map(player => getPlayerObjective(player, TEAMS_EJEMPLO_RESUELVE_BD))
         .map(getPlayerPerformance)
     const teamsPerformance = getTeamsPerformance(playersWithPerformance)
-    console.log(playersWithPerformance)
-    console.log(teamsPerformance)
+    const playersWithSalary = playersWithPerformance
+    .map(player => setTeamPerformanceToPlayer(player, teamsPerformance))
+    .map(getFinalSalary)
 
+    console.log(playersWithSalary)
 }
 
 module.exports = {

@@ -98,8 +98,7 @@ describe('Testing teamsController',()=>{
             .send(TEAM_TLAX_CONTROLLER)
             .end( function(err,res){
                 expect(res).to.have.status(201)
-                console.log(res.body)
-              //  expect(res.body).to.have.property('mensaje','Configuración actualizada correctemente')
+                expect(res.body).to.have.property('mensaje','Configuración creada correctemente')
                 done()
              })
            })

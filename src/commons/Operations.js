@@ -7,8 +7,9 @@ const roundNumber = number => {
 }
 
 const getPerformance = (goles,meta) => {
-    const perfomance = (goles/meta) * 100
-    const maxPerformance = getMaxPerformance(perfomance)
+    const tempMeta = meta < 1 ? 1 : meta
+    const performance = (goles/tempMeta) * 100
+    const maxPerformance = getMaxPerformance(performance)
     return roundNumber(maxPerformance)
 }
 

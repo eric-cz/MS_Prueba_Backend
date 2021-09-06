@@ -66,6 +66,13 @@ const getFinalSalary = player => {
     return { ...player, sueldo_completo: null }
 }
 
+const cleanPlayer = player => {
+    const { nombre, nivel, goles, sueldo, bono, sueldo_completo, equipo, goles_minimos } = player 
+    return {
+        nombre, goles_minimos, goles, sueldo, bono, sueldo_completo, nivel,  equipo
+    }
+}
+
 /**
  * Se obtiene el salario completo de una lista de jugadores
  * @param {*} players 
@@ -81,6 +88,7 @@ const getSalaries = async players => {
     return playersWithPerformance
     .map(player => setTeamPerformanceToPlayer(player, teamsPerformance))
     .map(getFinalSalary)
+    .map(cleanPlayer)
 }
 
 module.exports = {

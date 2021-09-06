@@ -14,4 +14,10 @@ const getTeamConfig = teamName => {
     return team
 }
 
-module.exports = { saveTeamConfig, getTeamConfig }
+const batchConfig = async options => {
+    LOGGER.info(`Starting batchConfig`)
+    await database.batch(options)
+    LOGGER.info(`Finishing batchConfig`)
+}
+
+module.exports = { saveTeamConfig, getTeamConfig , batchConfig}

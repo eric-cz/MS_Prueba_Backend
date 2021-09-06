@@ -21,6 +21,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "jsonschema": "^1.4.0",
+    "level": "^7.0.0",
     "log4js": "^6.3.0"
   },
   "devDependencies": {

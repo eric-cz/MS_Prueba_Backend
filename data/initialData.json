@@ -23,15 +23,15 @@
         "Cuauh": 20
     }
 },{
-    "nombreEquipo": "Cuervos",
+    "nombreEquipo": "Queretaro",
     "meta": {
-        "Rafa": 9,
-        "Moí": 12,
-        "Goyo": 19,
-        "Pele": 40
+        "BASICO": 9,
+        "MEDIO": 12,
+        "ALTO": 19,
+        "MAXIMO": 40
     }
 },{
-    "nombreEquipo": "San Pancho",
+    "nombreEquipo": "Colima",
     "meta": {
         "Suarez": 11,
         "Neymar": 12,
@@ -39,7 +39,7 @@
         "Maradona": 40
     }
 },{
-    "nombreEquipo": "Aston Birria",
+    "nombreEquipo": "Jalisco",
     "meta": {
         "Benzema": 2,
         "Ronaldo": 12,
@@ -47,7 +47,7 @@
         "Muller": 37
     }
 },{
-    "nombreEquipo": "Correcaminos",
+    "nombreEquipo": "Baja California",
     "meta": {
         "Halland": 15,
         "Kane": 10,
@@ -55,7 +55,7 @@
         "Puskas": 29
     }
 },{
-    "nombreEquipo": "La Real Pibil",
+    "nombreEquipo": "Michoacan",
     "meta": {
         "Mane": 10,
         "Firmino": 16,
@@ -63,7 +63,7 @@
         "Romario": 27
     }
 },{
-    "nombreEquipo": "Real Union",
+    "nombreEquipo": "Guerrero",
     "meta": {
         "Lukaku": 8,
         "Mbappe": 17,

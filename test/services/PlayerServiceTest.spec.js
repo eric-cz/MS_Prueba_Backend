@@ -38,7 +38,7 @@ describe("Testing PlayerService", function() {
         it("1.3 Test jugadores sin configuración ", async function() {
             const playersSalary = await getSalaries(CHIAPAS_PLAYERS)
             assert.equal(CHIAPAS_PLAYERS.length, playersSalary.length)
-            assert.isNull(playersSalary[0].sueldo_completo)
+            assert.equal(CHIAPAS_PLAYERS[0].sueldo, playersSalary[0].sueldo_completo)
         })
 
         it("1.4 Test jugadores  distintos equipos con meta en el JSON y sin configuración en BD", async function() {

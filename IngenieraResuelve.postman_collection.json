@@ -1,0 +1,804 @@
+{
+	"info": {
+		"_postman_id": "9900196c-09cd-4dca-b2b3-4fa51359ef13",
+		"name": "IngenieraResuelve",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Verificación",
+			"item": [
+				{
+					"name": "Verificar Microservicio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9030/ms-salarios/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9030",
+							"path": [
+								"ms-salarios",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Calculo de salarios",
+			"item": [
+				{
+					"name": "Jugadores Sin configuración en BD",
+					"item": [
+						{
+							"name": "Calcular salarios Chiapas",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"jugadores\": [\n        {\n            \"nombre\": \"Renato Ibarra\",\n            \"nivel\": \"C\",\n            \"goles\": 14,\n            \"sueldo\": 50000,\n            \"bono\": 25000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"TUXTLA FC\"\n        },\n        {\n            \"nombre\": \"Leornado\",\n            \"nivel\": \"Cuauh\",\n            \"goles\": 16,\n            \"sueldo\": 45000,\n            \"bono\": 19000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"TUXTLA FC\"\n        },\n        {\n            \"nombre\": \"David Villa\",\n            \"nivel\": \"A\",\n            \"goles\": 7,\n            \"sueldo\": 22000,\n            \"bono\": 14000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"OCOSINGO FC\"\n        },\n        {\n            \"nombre\": \"Morita\",\n            \"nivel\": \"B\",\n            \"goles\": 9,\n            \"sueldo\": 30000,\n            \"bono\": 13000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"OCOSINGO FC\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9030/ms-salarios/players/salaries",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9030",
+									"path": [
+										"ms-salarios",
+										"players",
+										"salaries"
+									]
+								},
+								"description": "Equipos que no tienen configuración en la BD"
+							},
+							"response": []
+						},
+						{
+							"name": "Calcular salarios Yucatan",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"jugadores\": [\n        {\n            \"nombre\": \"El Pibil\",\n            \"nivel\": \"C\",\n            \"goles\": 19,\n            \"sueldo\": 39500,\n            \"bono\": 25000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"Puerto Progreso FC\",\n            \"goles_minimos\": 17\n        },\n        {\n            \"nombre\": \"Abraham\",\n            \"nivel\": \"Z\",\n            \"goles\": 30,\n            \"sueldo\": 90000,\n            \"bono\": 30000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"Puerto Progreso FC\",\n            \"goles_minimos\": 27\n        },\n        {\n            \"nombre\": \"Fulanito\",\n            \"nivel\": \"A\",\n            \"goles\": 7,\n            \"sueldo\": 20000,\n            \"bono\": 9000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"RIO LAGARTOS FC\",\n            \"goles_minimos\": 12\n        },\n        {\n            \"nombre\": \"Rolando\",\n            \"nivel\": \"B\",\n            \"goles\": 9,\n            \"sueldo\": 30000,\n            \"bono\": 16000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"RIO LAGARTOS FC\",\n            \"goles_minimos\": 5\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9030/ms-salarios/players/salaries",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9030",
+									"path": [
+										"ms-salarios",
+										"players",
+										"salaries"
+									]
+								},
+								"description": "Equipos que no tienen configuración en la BD"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Jugadores tomados de las decripción del problema",
+					"item": [
+						{
+							"name": "Calcular salarios Resuelve FC",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"jugadores\" : [  \n       {  \n          \"nombre\":\"Juan\",\n          \"nivel\":\"A\",\n          \"goles\":6,\n          \"sueldo\":50000,\n          \"bono\":25000,\n          \"sueldo_completo\":null,\n          \"equipo\":\"Resuelve FC\"\n       },\n       {  \n          \"nombre\":\"Pedro\",\n          \"nivel\":\"B\",\n          \"goles\":7,\n          \"sueldo\":100000,\n          \"bono\":30000,\n          \"sueldo_completo\":null,\n          \"equipo\":\"Resuelve FC\"\n       },\n       {  \n          \"nombre\":\"Martin\",\n          \"nivel\":\"C\",\n          \"goles\":16,\n          \"sueldo\":20000,\n          \"bono\":10000,\n          \"sueldo_completo\":null,\n          \"equipo\":\"Resuelve FC\"\n \n       },\n       {  \n          \"nombre\":\"Luis\",\n          \"nivel\":\"Cuauh\",\n          \"goles\":19,\n          \"sueldo\":50000,\n          \"bono\":10000,\n          \"sueldo_completo\":null,\n          \"equipo\":\"Resuelve FC\"\n       }\n    ]\n }\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9030/ms-salarios/players/salaries",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9030",
+									"path": [
+										"ms-salarios",
+										"players",
+										"salaries"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Calcular salarios El Rulo",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"jugadores\" : [  \n      {  \n         \"nombre\":\"Juan Perez\",\n         \"nivel\":\"C\",\n         \"goles\":10,\n         \"sueldo\":50000,\n         \"bono\":25000,\n         \"sueldo_completo\":null,\n         \"equipo\":\"rojo\"\n      },\n      {  \n         \"nombre\":\"EL Cuauh\",\n         \"nivel\":\"Cuauh\",\n         \"goles\":30,\n         \"sueldo\":100000,\n         \"bono\":30000,\n         \"sueldo_completo\":null,\n         \"equipo\":\"azul\"\n      },\n      {  \n         \"nombre\":\"Cosme Fulanito\",\n         \"nivel\":\"A\",\n         \"goles\":7,\n         \"sueldo\":20000,\n         \"bono\":10000,\n         \"sueldo_completo\":null,\n         \"equipo\":\"azul\"\n\n      },\n      {  \n         \"nombre\":\"El Rulo\",\n         \"nivel\":\"B\",\n         \"goles\":9,\n         \"sueldo\":30000,\n         \"bono\":15000,\n         \"sueldo_completo\":null,\n         \"equipo\":\"rojo\"\n\n      }\n   ]\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9030/ms-salarios/players/salaries",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9030",
+									"path": [
+										"ms-salarios",
+										"players",
+										"salaries"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Jugadores con configuración en BD",
+					"item": [
+						{
+							"name": "Calcular salarios Queretaro FC",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"jugadores\": [\n        {\n            \"nombre\": \"Chicharito\",\n            \"nivel\": \"MEDIO\",\n            \"goles\": 10,\n            \"sueldo\": 50000,\n            \"bono\": 25000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"Queretaro\"\n        },\n        {\n            \"nombre\": \"Cuauh\",\n            \"nivel\": \"MAXIMO\",\n            \"goles\": 30,\n            \"sueldo\": 100000,\n            \"bono\": 30000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"Queretaro\"\n        },\n        {\n            \"nombre\": \"El Matador\",\n            \"nivel\": \"MEDIO\",\n            \"goles\": 7,\n            \"sueldo\": 20000,\n            \"bono\": 10000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"Queretaro\"\n        },\n        {\n            \"nombre\": \"Palencia\",\n            \"nivel\": \"BASICO\",\n            \"goles\": 9,\n            \"sueldo\": 30000,\n            \"bono\": 15000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"Queretaro\"\n        },\n        {\n            \"nombre\": \"Hugo Sanchez\",\n            \"nivel\": \"ALTO\",\n            \"goles\": 9,\n            \"sueldo\": 30000,\n            \"bono\": 15000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"Queretaro\"\n        },\n        {\n            \"nombre\": \"Borgetti\",\n            \"nivel\": \"MEDIO\",\n            \"goles\": 9,\n            \"sueldo\": 30000,\n            \"bono\": 15000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"Queretaro\"\n        },\n        {\n            \"nombre\": \"Zague\",\n            \"nivel\": \"NO EXISTE\",\n            \"goles\": 9,\n            \"sueldo\": 30000,\n            \"bono\": 15000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"Queretaro\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9030/ms-salarios/players/salaries",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9030",
+									"path": [
+										"ms-salarios",
+										"players",
+										"salaries"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Calcular salarios Colima y Jalisco FC",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"jugadores\":[  \n    {  \n       \"nombre\":\"Jorge\",\n       \"nivel\":\"Modrid\",\n       \"goles\":13,\n       \"sueldo\":56000,\n       \"bono\":24000,\n       \"sueldo_completo\":null,\n       \"equipo\":\"Colima\"\n    },\n    {  \n       \"nombre\":\"Hugo\",\n       \"nivel\":\"Ronaldo\",\n       \"goles\":23,\n       \"sueldo\":70000,\n       \"bono\":24000,\n       \"sueldo_completo\":null,\n       \"equipo\":\"Jalisco\"\n    },\n    {  \n       \"nombre\":\"Ismael\",\n       \"nivel\":\"Muller\",\n       \"goles\":23,\n       \"sueldo\":40000,\n       \"bono\":12000,\n       \"sueldo_completo\":null,\n       \"equipo\":\"Jalisco\"\n\n    },\n    {  \n       \"nombre\":\"Israel\",\n       \"nivel\":\"Suarez\",\n       \"goles\":19,\n       \"sueldo\":30000,\n       \"bono\":15000,\n       \"sueldo_completo\":null,\n       \"equipo\":\"Colima\"\n    }\n ]\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9030/ms-salarios/players/salaries",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9030",
+									"path": [
+										"ms-salarios",
+										"players",
+										"salaries"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Calcular salarios Baja California y Michoacan FC",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"jugadores\":[  \n    {  \n       \"nombre\":\"Adan\",\n       \"nivel\":\"Kane\",\n       \"goles\":13,\n       \"sueldo\":56000,\n       \"bono\":24000,\n       \"sueldo_completo\":null,\n       \"equipo\":\"Baja California\"\n    },\n    {  \n       \"nombre\":\"Juan\",\n       \"nivel\":\"Puskas\",\n       \"goles\":23,\n       \"sueldo\":55000,\n       \"bono\":21000,\n       \"sueldo_completo\":null,\n       \"equipo\":\"Baja California\"\n    },\n    {  \n       \"nombre\":\"Azael\",\n       \"nivel\":\"Romario\",\n       \"goles\":23,\n       \"sueldo\":45000,\n       \"bono\":18000,\n       \"sueldo_completo\":null,\n       \"equipo\":\"Michoacan\"\n    },\n    {  \n       \"nombre\":\"Emmanuel\",\n       \"nivel\":\"Mane\",\n       \"goles\":19,\n       \"sueldo\":30000,\n       \"bono\":16000,\n       \"sueldo_completo\":null,\n       \"equipo\":\"Michoacan\"\n    }\n ]\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9030/ms-salarios/players/salaries",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9030",
+									"path": [
+										"ms-salarios",
+										"players",
+										"salaries"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Calcular salarios Guerrero",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"jugadores\": [\n        {\n            \"nombre\": \"Eric\",\n            \"nivel\": \"Lukaku\",\n            \"goles\": 5,\n            \"sueldo\": 20000,\n            \"bono\": 15000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"Guerrero\"\n        },\n        {\n            \"nombre\": \"Daniel\",\n            \"nivel\": \"Grealish\",\n            \"goles\": 29,\n            \"sueldo\": 25000,\n            \"bono\": 19000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"Guerrero\"\n        },\n        {\n            \"nombre\": \"Alejandro\",\n            \"nivel\": \"Lewandowski\",\n            \"goles\": 25,\n            \"sueldo\": 45000,\n            \"bono\": 28000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"Guerrero\"\n        },\n        {\n            \"nombre\": \"Gari\",\n            \"nivel\": \"Mbappe\",\n            \"goles\": 10,\n            \"sueldo\": 40000,\n            \"bono\": 21000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"Guerrero\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9030/ms-salarios/players/salaries",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9030",
+									"path": [
+										"ms-salarios",
+										"players",
+										"salaries"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Error en petición",
+					"item": [
+						{
+							"name": "Error faltan elementos en el arreglo de jugadores",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"jugadores\": [\n        {\n            \"nivel\": \"MEDIO\",\n            \"goles\": 10,\n            \"sueldo\": 50000,\n            \"bono\": 25000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"Queretaro\"\n        },\n        {\n            \"nombre\": \"Cuauh\",\n            \"goles\": 30,\n            \"sueldo\": 100000,\n            \"bono\": 30000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"Queretaro\"\n        },\n        {\n            \"nombre\": \"El Matador\",\n            \"nivel\": \"MEDIO\",\n            \"sueldo\": 20000,\n            \"bono\": 10000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"Queretaro\"\n        },\n        {\n            \"nombre\": \"Palencia\",\n            \"nivel\": \"BASICO\",\n            \"goles\": 9,\n            \"bono\": 15000,\n            \"sueldo_completo\": null\n        },\n        {\n            \"nombre\": \"Hugo Sanchez\",\n            \"nivel\": \"ALTO\",\n            \"goles\": 9,\n            \"sueldo\": 30000,\n            \"bono\": 15000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"Queretaro\"\n        },\n        {\n            \"nombre\": \"Borgetti\",\n            \"nivel\": \"MEDIO\",\n            \"goles\": 9,\n            \"sueldo\": 30000,\n            \"bono\": 15000,\n            \"equipo\": \"Queretaro\"\n        },\n        {\n            \"nombre\": \"Zague\",\n            \"goles\": 9,\n            \"sueldo\": 30000,\n            \"bono\": 15000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"Queretaro\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9030/ms-salarios/players/salaries",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9030",
+									"path": [
+										"ms-salarios",
+										"players",
+										"salaries"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Error campo jugadores",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"players\": [\n        {\n            \"nivel\": \"MEDIO\",\n            \"goles\": 10,\n            \"sueldo\": 50000,\n            \"bono\": 25000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"Queretaro\"\n        },\n        {\n            \"nombre\": \"Cuauh\",\n            \"goles\": 30,\n            \"sueldo\": 100000,\n            \"bono\": 30000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"Queretaro\"\n        },\n        {\n            \"nombre\": \"El Matador\",\n            \"nivel\": \"MEDIO\",\n            \"sueldo\": 20000,\n            \"bono\": 10000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"Queretaro\"\n        },\n        {\n            \"nombre\": \"Palencia\",\n            \"nivel\": \"BASICO\",\n            \"goles\": 9,\n            \"bono\": 15000,\n            \"sueldo_completo\": null\n        },\n        {\n            \"nombre\": \"Hugo Sanchez\",\n            \"nivel\": \"ALTO\",\n            \"goles\": 9,\n            \"sueldo\": 30000,\n            \"bono\": 15000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"Queretaro\"\n        },\n        {\n            \"nombre\": \"Borgetti\",\n            \"nivel\": \"MEDIO\",\n            \"goles\": 9,\n            \"sueldo\": 30000,\n            \"bono\": 15000,\n            \"equipo\": \"Queretaro\"\n        },\n        {\n            \"nombre\": \"Zague\",\n            \"goles\": 9,\n            \"sueldo\": 30000,\n            \"bono\": 15000,\n            \"sueldo_completo\": null,\n            \"equipo\": \"Queretaro\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9030/ms-salarios/players/salaries",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9030",
+									"path": [
+										"ms-salarios",
+										"players",
+										"salaries"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Se agregan peticiones que contiene un request invalido\n"
+				}
+			]
+		},
+		{
+			"name": "Consulta equipos",
+			"item": [
+				{
+					"name": "Consulta equipos exitoso",
+					"item": [
+						{
+							"name": "Obtener configuración equipo rojo",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9030/ms-salarios/teams/rojo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9030",
+									"path": [
+										"ms-salarios",
+										"teams",
+										"rojo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener configuración equipo azul",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9030/ms-salarios/teams/azul",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9030",
+									"path": [
+										"ms-salarios",
+										"teams",
+										"azul"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener configuración equipo Resuelve FC",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9030/ms-salarios/teams/Resuelve%20FC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9030",
+									"path": [
+										"ms-salarios",
+										"teams",
+										"Resuelve%20FC"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener configuración equipo Queretaro",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9030/ms-salarios/teams/Queretaro",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9030",
+									"path": [
+										"ms-salarios",
+										"teams",
+										"Queretaro"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener configuración equipo Colima",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9030/ms-salarios/teams/Colima",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9030",
+									"path": [
+										"ms-salarios",
+										"teams",
+										"Colima"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener configuración equipo Jalisco",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9030/ms-salarios/teams/Jalisco",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9030",
+									"path": [
+										"ms-salarios",
+										"teams",
+										"Jalisco"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener configuración equipo Michoacan",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9030/ms-salarios/teams/Michoacan",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9030",
+									"path": [
+										"ms-salarios",
+										"teams",
+										"Michoacan"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener configuración equipo Guerrero",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9030/ms-salarios/teams/Guerrero",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9030",
+									"path": [
+										"ms-salarios",
+										"teams",
+										"Guerrero"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener configuración equipo Baja California",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9030/ms-salarios/teams/Baja%20California",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9030",
+									"path": [
+										"ms-salarios",
+										"teams",
+										"Baja%20California"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "No existe equipo",
+					"item": [
+						{
+							"name": "Consulta de equipo inexistente",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9030/ms-salarios/teams/Madrid",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9030",
+									"path": [
+										"ms-salarios",
+										"teams",
+										"Madrid"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Dar de alta equipos",
+			"item": [
+				{
+					"name": "Creación exitosa",
+					"item": [
+						{
+							"name": "Crear configuracion",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombreEquipo\": \"Veracruz\",\n    \"goles_minimos\": [\n        {\n            \"nivel\": \"Papantla\",\n            \"goles\": 28\n        },\n        {\n            \"nivel\": \"Xico\",\n            \"goles\": 20\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9030/ms-salarios/teams",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9030",
+									"path": [
+										"ms-salarios",
+										"teams"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Error en request",
+					"item": [
+						{
+							"name": "Crear configuracion error request",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"teamName\": \"Estado de Mexico\",\n    \"meta\": [\n        {\n            \"nivel\": \"AB\",\n            \"goles\": 9\n        },\n        {\n            \"nivel\": \"Medio\",\n            \"goles\": 12\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9030/ms-salarios/teams",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9030",
+									"path": [
+										"ms-salarios",
+										"teams"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Error equipo existente",
+					"item": [
+						{
+							"name": "Crear configuracion equipo existente",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombreEquipo\": \"rojo\",\n    \"goles_minimos\": [\n        {\n            \"nivel\": \"Oro\",\n            \"goles\": 9\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9030/ms-salarios/teams",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9030",
+									"path": [
+										"ms-salarios",
+										"teams"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Actualizar equipos",
+			"item": [
+				{
+					"name": "Actualización request error",
+					"item": [
+						{
+							"name": "Actualizar metas de equipo error request",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombreEquipo\": \"Resuelve FC\",\n    \"goles_minimos\": {\n        \"A\": 5,\n        \"B\": 10,\n        \"C\": 15,\n        \"Cuauh\": 19\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9030/ms-salarios/teams/rojo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9030",
+									"path": [
+										"ms-salarios",
+										"teams",
+										"rojo"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Actualización exitosa",
+					"item": [
+						{
+							"name": "Actualizar metas de equipo",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombreEquipo\": \"rojo\",\n    \"goles_minimos\": [\n        {\n            \"nivel\": \"A\",\n            \"goles\": 5\n        },\n        {\n            \"nivel\": \"B\",\n            \"goles\": 10\n        },\n        {\n            \"nivel\": \"C\",\n            \"goles\": 15\n        },\n        {\n            \"nivel\": \"Cuauh\",\n            \"goles\": 20\n        },\n        {\n            \"nivel\": \"D\",\n            \"goles\": 18\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9030/ms-salarios/teams/rojo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9030",
+									"path": [
+										"ms-salarios",
+										"teams",
+										"rojo"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Actualización no existe equipo",
+					"item": [
+						{
+							"name": "Actualizar metas de equipo Belice",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombreEquipo\": \"Belice\",\n    \"goles_minimos\": [\n        {\n            \"nivel\": \"A\",\n            \"goles\": 5\n        },\n        {\n            \"nivel\": \"B\",\n            \"goles\": 10\n        },\n        {\n            \"nivel\": \"C\",\n            \"goles\": 15\n        },\n        {\n            \"nivel\": \"Cuauh\",\n            \"goles\": 20\n        },\n        {\n            \"nivel\": \"D\",\n            \"goles\": 18\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9030/ms-salarios/teams/Belice",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9030",
+									"path": [
+										"ms-salarios",
+										"teams",
+										"Belice"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

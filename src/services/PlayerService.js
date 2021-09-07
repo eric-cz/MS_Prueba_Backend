@@ -31,7 +31,7 @@ const getPlayerObjective = (player, teams) => {
  * @returns 
  */
 const getPlayerPerformance = player => {
-    if(player.goles_minimos){
+    if(player.goles_minimos || player.goles_minimos === 0){
         const perfomance = getPerformance(player.goles,player.goles_minimos)
         return {... player, alcance: perfomance }
     }
@@ -63,7 +63,7 @@ const getFinalSalary = player => {
         const salary = getSalary(player.sueldo, bonus)
         return {... player, sueldo_completo : salary}
     }
-    return { ...player, sueldo_completo: null }
+    return { ...player, sueldo_completo: player.sueldo }
 }
 
 const cleanPlayer = player => {
